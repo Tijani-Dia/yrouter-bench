@@ -1,3 +1,5 @@
+# cython: profile=True
+
 from django.urls import resolve, set_urlconf
 from yrouter import Router
 
@@ -39,8 +41,11 @@ def bench_dj():
 
 if __name__ == "__main__":
     import timeit
-
+    print("yrouter is running...")
     print(timeit.timeit("bench()", globals=globals(), number=10000))
+    print("django is running...")
     print(timeit.timeit("bench_dj()", globals=globals(), number=10000))
-    """import cProfile
-    cProfile.run('print(timeit.timeit("bench()", globals=globals(), number=10000))', sort=1)"""
+    """
+    import cProfile
+    cProfile.run('timeit.timeit("bench()", globals=globals(), number=10000)', sort=1)
+    """
