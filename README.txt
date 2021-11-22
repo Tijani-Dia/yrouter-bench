@@ -28,3 +28,4 @@ python bench.py
 ## Latest Results
 
 A github action runs weekly and shows the latest benchmark results here.
+
