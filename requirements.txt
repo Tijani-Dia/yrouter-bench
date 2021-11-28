@@ -1,3 +1,4 @@
-yrouter
+git+git://github.com/tijani-dia/yrouter@main
 django
 sanic-routing
+falcon

@@ -2,7 +2,7 @@
 
 The approach is to have the same URL configuration for [yrouter](https://github.com/Tijani-Dia/yrouter) and other routing modules and try to match some paths.
 
-Currently, the benchmark is against `django` and `sanic`'s router.
+Currently, the benchmark is against `django`, `sanic` and `falcon`.
 
 ## How to run the benchmarks
 

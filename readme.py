@@ -3,7 +3,9 @@ from datetime import datetime
 
 
 def generate_readme():
-    bench_results = subprocess.run(["python3", "bench.py"], stdout=subprocess.PIPE).stdout.decode("utf-8")
+    bench_results = subprocess.run(
+        ["python3", "bench.py"], stdout=subprocess.PIPE
+    ).stdout.decode("utf-8")
     with open("README.txt") as f:
         base_readme = f.read()
 

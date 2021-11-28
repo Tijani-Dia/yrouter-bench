@@ -1,6 +1,8 @@
-from django.urls import resolve
+from django.urls import resolve, set_urlconf
 
-from routes import sanic_router, y_router
+from routes.falcon import falcon_router
+from routes.sanic import sanic_router
+from routes.yrouter import y_router
 
 
 def bench():
@@ -58,8 +60,24 @@ def bench_sanic():
         pass
 
 
+def bench_falcon():
+    falcon_router.find("/")
+    falcon_router.find("/articles/2020/")
+    falcon_router.find("/articles/2015/")
+    falcon_router.find("/articles/2015/04/12/")
+    falcon_router.find("/articles/categories/sport/newest/")
+    falcon_router.find("/users/extra")
+    falcon_router.find("/catchall")
+    falcon_router.find("/int/92")
+
+    falcon_router.find("/articles/2015/04/12/98")
+    falcon_router.find("/users/extra/bog")
+
+
 if __name__ == "__main__":
     import timeit
+
+    set_urlconf("routes.django")
 
     print("yrouter is running...")
     ytime = timeit.timeit("bench()", globals=globals(), number=10000)
@@ -71,4 +89,8 @@ if __name__ == "__main__":
 
     print("sanic is running...")
     sanic_time = timeit.timeit("bench_sanic()", globals=globals(), number=10000)
-    print(f"Took {sanic_time} seconds.")
+    print(f"Took {sanic_time} seconds.\n")
+
+    print("falcon is running...")
+    falcon_time = timeit.timeit("bench_falcon()", globals=globals(), number=10000)
+    print(f"Took {falcon_time} seconds.")
