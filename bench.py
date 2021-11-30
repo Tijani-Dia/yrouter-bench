@@ -2,6 +2,7 @@ from django.urls import resolve, set_urlconf
 
 from routes.falcon import falcon_router
 from routes.sanic import sanic_router
+from routes.werkzeug import werkzeug_router
 from routes.yrouter import y_router
 
 
@@ -74,6 +75,26 @@ def bench_falcon():
     falcon_router.find("/users/extra/bog")
 
 
+def bench_werkzeug():
+    werkzeug_router.match("/")
+    werkzeug_router.match("/articles/2020/")
+    werkzeug_router.match("/articles/2015/")
+    werkzeug_router.match("/articles/2015/04/12/")
+    werkzeug_router.match("/articles/categories/sport/newest/")
+    werkzeug_router.match("/users/extra/")
+    werkzeug_router.match("/catchall/")
+    werkzeug_router.match("/int/92/")
+
+    try:
+        werkzeug_router.match("/articles/2015/04/12/98")
+    except:
+        pass
+    try:
+        werkzeug_router.match("/users/extra/bog")
+    except:
+        pass
+
+
 if __name__ == "__main__":
     import timeit
 
@@ -93,4 +114,8 @@ if __name__ == "__main__":
 
     print("falcon is running...")
     falcon_time = timeit.timeit("bench_falcon()", globals=globals(), number=10000)
-    print(f"Took {falcon_time} seconds.")
+    print(f"Took {falcon_time} seconds.\n")
+
+    print("werkzeug is running...")
+    werkzeug_time = timeit.timeit("bench_werkzeug()", globals=globals(), number=10000)
+    print(f"Took {werkzeug_time} seconds.\n")
