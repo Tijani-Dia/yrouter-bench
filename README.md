@@ -25,6 +25,26 @@ pip install -r requirements.txt
 python bench.py
 ```
 
-## Latest Results 
+## Latest Results
 
 A github action runs weekly and shows the latest benchmark results here.
+
+Generated on *Fri Jul  1 15:53:43 2022*:
+
+```shell
+yrouter is running...
+Took 0.19715151300010803 seconds.
+
+django is running...
+Took 2.5823216200001298 seconds.
+
+sanic is running...
+Took 0.6537866300000132 seconds.
+
+falcon is running...
+Took 0.15483778099996925 seconds.
+
+werkzeug is running...
+Took 0.9425689270001385 seconds.
+
+```
