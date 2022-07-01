@@ -25,6 +25,6 @@ pip install -r requirements.txt
 python bench.py
 ```
 
-## Latest Results
+## Latest Results 
 
 A github action runs weekly and shows the latest benchmark results here.
