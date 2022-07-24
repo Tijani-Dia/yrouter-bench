@@ -29,22 +29,22 @@ python bench.py
 
 A github action runs weekly and shows the latest benchmark results here.
 
-Generated on *Sun Jul 17 00:31:52 2022*:
+Generated on *Sun Jul 24 00:33:46 2022*:
 
 ```shell
 yrouter is running...
-Took 0.1968354619999957 seconds.
+Took 0.2012034969999945 seconds.
 
 django is running...
-Took 2.6012685229999875 seconds.
+Took 2.5506597860000397 seconds.
 
 sanic is running...
-Took 0.6521657610000204 seconds.
+Took 0.6543641960000173 seconds.
 
 falcon is running...
-Took 0.15333423799998513 seconds.
+Took 0.15984435199999325 seconds.
 
 werkzeug is running...
-Took 0.9396105820000002 seconds.
+Took 1.4795119080000063 seconds.
 
 ```
